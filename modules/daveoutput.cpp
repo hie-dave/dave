@@ -47,6 +47,7 @@ DaveOutput::DaveOutput() {
 
 	// Annual patch-level outputs.
 	add_patch_output("file_dave_patch_age"                      , ANNUAL, "age", [](const Patch &p) { return 1.0 * p.age; }, "Annual patch-level age since last disturbance (years)");
+	add_patch_output("file_dave_aclearcut"                      , ANNUAL, "clearcut", [](const Patch &p) { return p.clearcut_this_year ? 1.0 : 0.0; }, "Annual patch-level clearcut occurrence (0/1)");
 	add_patch_output("file_dave_arunoff"                        , ANNUAL, annual_runoff_columns, "Annual runoff (mm)");
 	add_patch_output("file_dave_acpool"                         , ANNUAL, cpool_columns, "Annual C pools (kgC/m2)", true);
 	add_patch_output("file_dave_anpool"                         , ANNUAL, npool_columns, "Annual N pools (kgN/m2)");
